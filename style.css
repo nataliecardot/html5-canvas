@@ -1,4 +1,9 @@
-html,
 body {
+  /* Default in browsers is 8px on all sides */
   margin: 0;
+}
+
+canvas {
+  /* Default in Chrome is inline. Changing it to block removes vertical scrollbar */
+  display: block;
 }
