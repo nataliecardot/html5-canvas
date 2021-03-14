@@ -16,10 +16,13 @@ ctx.lineWidth = 100;
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
+// Degree on color wheel - 0 to 360 (red to red)
+let hue = 0;
 
 function draw(e) {
   if (!isDrawing) return; // Stop fn from funning when not moused down
-  console.log(e);
+  // console.log(e);
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
   ctx.beginPath();
   // (starting location) moveTo() moves path to specified point on canvas without creating a line
   ctx.moveTo(lastX, lastY);
@@ -29,6 +32,11 @@ function draw(e) {
   ctx.stroke();
   // Update X and Y (destructuring an array - set two variables in one line)
   [lastX, lastY] = [e.offsetX, e.offsetY];
+  // Note - if it exceeds 360, it's "wrapped back" to range of 0 to 360, so resetting it as done below isn't really necessary
+  hue++;
+  if (hue >= 360) {
+    hue = 0;
+  }
 }
 
 canvas.addEventListener('mousedown', (e) => {
