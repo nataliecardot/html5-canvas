@@ -12,6 +12,9 @@ ctx.lineJoin = 'round';
 // Determines shape used to draw the end points of lines (default: butt, which adds flat edge to end of each line)
 ctx.lineCap = 'round';
 ctx.lineWidth = 6;
+// Alternate effects
+// ctx.globalCompositeOperation = 'xor';
+// ctx.globalCompositeOperation = 'screen';
 
 let isDrawing = false;
 let lastX = 0;
