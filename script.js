@@ -7,9 +7,9 @@ canvas.height = window.innerHeight;
 
 // Color
 ctx.strokeStyle = '#BADA55';
-// Determines shape used to join two line segments where they meet (default: miter)
+// Determines shape used to join two line segments where they meet (default: miter, which creates a sharp corner)
 ctx.lineJoin = 'round';
-// Determines shape used to draw the end points of lines (default: butt)
+// Determines shape used to draw the end points of lines (default: butt, which adds flat edge to end of each line)
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
 
