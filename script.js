@@ -11,6 +11,7 @@ ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 // Determines shape used to draw the end points of lines (default: butt)
 ctx.lineCap = 'round';
+ctx.lineWidth = 100;
 
 let isDrawing = false;
 let lastX = 0;
