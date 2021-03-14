@@ -11,13 +11,14 @@ ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 // Determines shape used to draw the end points of lines (default: butt, which adds flat edge to end of each line)
 ctx.lineCap = 'round';
-ctx.lineWidth = 100;
+ctx.lineWidth = 6;
 
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
 // Degree on color wheel - 0 to 360 (red to red)
 let hue = 0;
+let increaseLineWidth = true;
 
 function draw(e) {
   if (!isDrawing) return; // Stop fn from funning when not moused down
@@ -37,6 +38,12 @@ function draw(e) {
   if (hue >= 360) {
     hue = 0;
   }
+
+  // increaseLineWidth is set to true (default boolean value) until it hits 70, so it increments until that point (since it's set to increment when increaseLineWidth is set to true); at 70, increaseLineWidth becomes false, so lineWidth is then decremented until it hits 5; then it's set back to true, so it starts increasing again until it hits 100 again (and so forth)
+  if (ctx.lineWidth == 70 || ctx.lineWidth == 5) {
+    increaseLineWidth = !increaseLineWidth;
+  }
+  increaseLineWidth ? ctx.lineWidth++ : ctx.lineWidth--;
 }
 
 canvas.addEventListener('mousedown', (e) => {
